@@ -22,7 +22,7 @@ const read = async (req, res, next) => {
 const add = async (req, res, next) => {
   const userInfos = {
     email: req.body.email,
-    password: req.body.password,
+    hashedPassword: req.body.hashedPassword,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
   };
@@ -36,7 +36,7 @@ const add = async (req, res, next) => {
 
 const update = async (req, res, next) => {
   const user = {
-    password: req.body.password,
+    hashedPassword: req.body.hashedPassword,
     id: req.params.id,
   };
   try {

@@ -8,10 +8,13 @@ const router = express.Router();
 
 const postControllers = require("./controllers/postControllers");
 const userControllers = require("./controllers/userControllers");
+const authControllers = require("./controllers/authControllers");
+
+const authMiddlewares = require("./services/auth");
 
 /* Routes pour les posts */
 router.get("/posts", postControllers.browse);
-router.get("/posts/:id/", postControllers.read);
+router.get("/posts/:id", postControllers.read);
 
 router.post("/posts", postControllers.add);
 
@@ -22,10 +25,13 @@ router.delete("/posts/:id", postControllers.destroy);
 router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
 
-router.post("/users", userControllers.add);
+router.post("/users", authMiddlewares.hashPassword, userControllers.add);
 
 router.put("/users/:id", userControllers.update);
 router.delete("/users/:id", userControllers.destroy);
+
+/* Routes pour me log */
+router.post("/login", authControllers.login);
 
 /* ************************************************************************* */
 
