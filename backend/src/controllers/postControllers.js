@@ -37,8 +37,41 @@ const add = async (req, res, next) => {
   }
 };
 
+const update = async (req, res, next) => {
+  const postInfos = {
+    content: req.body.content,
+    id: req.params.id,
+  };
+
+  try {
+    const result = await tables.post.update(postInfos);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "post introuvable" });
+    } else {
+      res.json({ msg: "post modifié avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const destroy = async (req, res, next) => {
+  try {
+    const result = await tables.post.destroy(req.params.id);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "post introuvable" });
+    } else {
+      res.json({ msg: "post supprimé avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
   read,
   add,
+  update,
+  destroy,
 };

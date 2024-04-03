@@ -25,6 +25,22 @@ class PostManager extends AbstractManager {
     );
     return rows;
   }
+
+  async update(post) {
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET content=? WHERE id=?`,
+      [post.content, post.id]
+    );
+    return rows;
+  }
+
+  async destroy(id) {
+    const [rows] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id=?`,
+      [id]
+    );
+    return rows;
+  }
 }
 
 module.exports = PostManager;
