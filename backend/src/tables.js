@@ -4,9 +4,11 @@
 
 // Import the manager modules responsible for handling data operations on the tables
 const PostManager = require("./models/PostManager");
+const UserManager = require("./models/UserManager");
 
 const managers = [
   PostManager,
+  UserManager,
   // Add other managers here
 ];
 
