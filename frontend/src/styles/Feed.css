@@ -9,6 +9,48 @@
 }
 
 .dateandhour {
-  margin-top: 1em;
   color: rgba(0, 0, 0, 0.423);
+  margin-bottom: 1em;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logos {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+  margin-right: 1.5em;
+}
+
+.logo_nav {
+  width: 90px;
+  margin: 1em;
+}
+
+.logo_add {
+  width: 40px;
+}
+
+.logo_user {
+  width: 40px;
+}
+
+.img_likes {
+  width: 20px;
+}
+
+.likes {
+  display: flex;
+  gap: 0.5em;
+}
+
+.likes_comments {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

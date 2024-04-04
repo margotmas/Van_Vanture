@@ -37,10 +37,14 @@ export default function AddPost() {
 
   return (
     <div className="add_post">
-      <h1>Créer un post</h1>
       <form onSubmit={submitPost}>
         <label htmlFor="content">Contenu du post :</label>
-        <textarea name="content" onChange={handleChangeForm} id="content" />
+        <textarea
+          name="content"
+          onChange={handleChangeForm}
+          id="content"
+          placeholder="Tapez votre texte ici..."
+        />
         <input type="submit" />
       </form>
     </div>

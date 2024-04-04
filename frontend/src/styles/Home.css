@@ -20,16 +20,18 @@
   margin: auto;
   overflow: hidden;
   position: relative;
+  height: 100vh;
 }
 
-.home > img {
+.logo_vanvanture {
   margin-top: 5rem;
   width: 200px;
 }
+
 .home > p {
   padding: 2rem;
   font-weight: 300;
-  margin: 2rem 0 18rem 0;
+  margin: 2rem 0 22rem 0;
 }
 
 .home > .login_button {

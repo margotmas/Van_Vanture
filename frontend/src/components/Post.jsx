@@ -29,8 +29,19 @@ function Post() {
             {post.firstname}&nbsp;
             {post.lastname}
           </h3>
-          <p>{post.content}</p>
           <p className="dateandhour">{post.created_at}</p>
+          <p>{post.content}</p>
+          <div className="likes_comments">
+            <div className="likes">
+              <img
+                src="http://localhost:3310/public/assets/images/likes.png"
+                alt="logo Van Vanture"
+                className="img_likes"
+              />
+              <p>0</p>
+            </div>
+            <p>2 commentaires</p>
+          </div>
         </div>
       ))}
     </div>
