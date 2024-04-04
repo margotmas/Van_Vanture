@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import UserContext from "../services/UserContext";
+
 import "../App.css";
+import "../styles/Login.css";
 
 function Login() {
   const { setUser } = useContext(UserContext);
@@ -48,25 +50,38 @@ function Login() {
   };
 
   return (
-    <div className="login_form">
-      <h3>Nous sommes heureux de te revoir !</h3>
-      <form onSubmit={submitForm}>
-        <input
-          type="email"
-          required
-          onChange={handleChangeEmail}
-          id="email"
-          placeholder="Adresse e-mail"
-        />
-        <input
-          type="password"
-          required
-          onChange={handleChangePassword}
-          id="password"
-          placeholder="Mot de passe"
-        />
-        <input type="submit" value="Me connecter" />
-      </form>
+    <div className="home_login">
+      <img
+        src="http://localhost:3310/public/assets/images/Van_vanture.png"
+        alt="Logo Van Vanture"
+        className="logo_vanvanture"
+      />
+      <p>
+        Découvrez le monde de la vanlife et partagez vos aventures avec une
+        communauté passionnée. Rejoignez-nous dès maintenant pour partager vos
+        expériences et découvrir de nouveaux horizons !
+      </p>
+
+      <div className="login_form">
+        <h3>Nous sommes heureux de te revoir !</h3>
+        <form onSubmit={submitForm}>
+          <input
+            type="email"
+            required
+            onChange={handleChangeEmail}
+            id="email"
+            placeholder="Adresse e-mail"
+          />
+          <input
+            type="password"
+            required
+            onChange={handleChangePassword}
+            id="password"
+            placeholder="Mot de passe"
+          />
+          <input type="submit" value="Me connecter" className="login_button" />
+        </form>
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ function Home() {
       <img
         src="http://localhost:3310/public/assets/images/Van_vanture.png"
         alt="Logo Van Vanture"
+        className="logo_vanvanture"
       />
       <p>
         Découvrez le monde de la vanlife et partagez vos aventures avec une
