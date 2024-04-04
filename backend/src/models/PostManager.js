@@ -6,7 +6,11 @@ class PostManager extends AbstractManager {
   }
 
   async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database
+      .query(`SELECT post.*, user.firstname, user.lastname
+      FROM post
+      INNER JOIN user ON post.user_id = user.id
+    `);
     return rows;
   }
 
@@ -14,6 +18,14 @@ class PostManager extends AbstractManager {
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
+    );
+    return rows;
+  }
+
+  async readByUserId(userId) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE user_id = ?`,
+      [userId]
     );
     return rows;
   }

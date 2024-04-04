@@ -32,4 +32,28 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, verifyToken };
+const verifyUserToken = (req, res, next) => {
+  const infos = {
+    idUser: req.body.user_id,
+  };
+
+  console.info("Les infos : ", infos);
+
+  req.userId = parseInt(infos.idUser, 10);
+
+  const token = req.cookies.auth;
+
+  try {
+    const decodedToken = jwt.verify(token, process.env.APP_SECRET);
+    if (decodedToken.sub === infos.idUser) {
+      console.info("Ok utilisateur vérifié");
+      next();
+    } else {
+      console.info("erreur user non valide");
+    }
+  } catch (error) {
+    console.error("Token verification failed:", error);
+    next(error);
+  }
+};
+module.exports = { hashPassword, verifyToken, verifyUserToken };

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 function Register() {
@@ -9,7 +11,7 @@ function Register() {
     lastname: "",
   });
 
-  console.info("Ici le contenu de mon form", form);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setForm({
@@ -22,7 +24,10 @@ function Register() {
     e.preventDefault();
     axios
       .post("http://localhost:3310/api/users/", form)
-      .then((response) => console.info(response.data))
+      .then((response) => {
+        console.info(response.data);
+        navigate("/login");
+      })
       .catch((error) => console.error(error));
   };
 

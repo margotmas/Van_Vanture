@@ -1,0 +1,20 @@
+:root {
+  --font-text: "Poppins", sans-serif;
+  --font-size-p: 14px;
+}
+
+* {
+  text-decoration: none;
+  list-style: none;
+  font-family: var(--font-text);
+  font-size: var(--font-size-p);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+main {
+  height: 200vh;
+}

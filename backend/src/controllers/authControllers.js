@@ -30,7 +30,13 @@ const login = async (req, res, next) => {
           httpOnly: true,
           sameSite: "Lax",
         })
-        .json({ msg: "Connexion réussie" });
+        .json({
+          msg: "Connexion réussie",
+          id: user[0].id,
+          email: user[0].email,
+          firstname: user[0].firstname,
+          lastname: user[0].lastname,
+        });
     } else {
       res.sendStatus(422);
     }
