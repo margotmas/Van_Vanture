@@ -16,7 +16,7 @@ const authMiddlewares = require("./services/auth");
 router.get("/posts", postControllers.browse);
 router.get("/posts/:id", postControllers.read);
 
-router.post("/posts", postControllers.add);
+router.post("/posts", authMiddlewares.verifyUserToken, postControllers.add);
 
 router.put("/posts/:id", postControllers.update);
 router.delete("/posts/:id", postControllers.destroy);
@@ -32,6 +32,9 @@ router.delete("/users/:id", userControllers.destroy);
 
 /* Routes pour me log */
 router.post("/login", authControllers.login);
+
+/* Routes pour ma page profile */
+router.get("/profile/:id/posts", postControllers.getUserPosts);
 
 /* ************************************************************************* */
 

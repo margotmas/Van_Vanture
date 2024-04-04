@@ -19,6 +19,17 @@ const read = async (req, res, next) => {
   }
 };
 
+const getUserPosts = async (req, res, next) => {
+  const userId = req.params.id;
+
+  try {
+    const post = await tables.post.readByUserId(userId);
+    res.json(post);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   const postInfos = {
     content: req.body.content,
@@ -71,6 +82,7 @@ const destroy = async (req, res, next) => {
 module.exports = {
   browse,
   read,
+  getUserPosts,
   add,
   update,
   destroy,

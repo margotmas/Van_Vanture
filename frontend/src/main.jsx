@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import axios from "axios";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UserProvider } from "./services/UserContext";
@@ -10,7 +9,8 @@ import Feed from "./pages/Feed";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import CreatePost from "./pages/CreatePost";
+import Profile from "./pages/Profile";
+import AddPost from "./pages/AddPost";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +23,6 @@ const router = createBrowserRouter([
       {
         path: "/feed",
         element: <Feed />,
-        loader: () =>
-          axios
-            .get(`${import.meta.env.VITE_BACKEND_URL}/api/posts`)
-            .then((response) => response.data),
       },
       {
         path: "/login",
@@ -37,8 +33,12 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/create",
-        element: <CreatePost />,
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/add",
+        element: <AddPost />,
       },
     ],
   },

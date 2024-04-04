@@ -14,6 +14,7 @@
 }
 
 html,
-body {
-  height: 100vh;
+body,
+main {
+  height: 200vh;
 }

@@ -42,7 +42,7 @@ function Login() {
           firstname: response.data.firstname,
           lastname: response.data.lastname,
         });
-        navigate("/", { replace: true });
+        navigate("/feed", { replace: true });
       })
       .catch((error) => console.error(error));
   };
