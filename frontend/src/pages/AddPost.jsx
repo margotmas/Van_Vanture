@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import axios from "axios";
 import UserContext from "../services/UserContext";
@@ -36,17 +36,44 @@ export default function AddPost() {
   };
 
   return (
-    <div className="add_post">
-      <form onSubmit={submitPost}>
-        <label htmlFor="content">Contenu du post :</label>
-        <textarea
-          name="content"
-          onChange={handleChangeForm}
-          id="content"
-          placeholder="Tapez votre texte ici..."
-        />
-        <input type="submit" />
-      </form>
-    </div>
+    <>
+      <div className="nav">
+        <Link to="/feed">
+          <img
+            src="http://localhost:3310/public/assets/images/Van_vanture2.png"
+            alt="logo Van Vanture"
+            className="logo_nav"
+          />
+        </Link>
+        <div className="logos">
+          <Link to="/add">
+            <img
+              src="http://localhost:3310/public/assets/images/add.png"
+              alt="logo add"
+              className="logo_add"
+            />
+          </Link>
+          <Link to="/profile">
+            <img
+              src="http://localhost:3310/public/assets/images/user.png"
+              alt="logo profil"
+              className="logo_user"
+            />
+          </Link>
+        </div>
+      </div>
+      <div className="add_post">
+        <form onSubmit={submitPost}>
+          <label htmlFor="content">Postez une publication</label>
+          <textarea
+            name="content"
+            onChange={handleChangeForm}
+            id="content"
+            placeholder="Tapez votre texte ici..."
+          />
+          <input type="submit" />
+        </form>
+      </div>
+    </>
   );
 }

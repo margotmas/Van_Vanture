@@ -8,7 +8,7 @@ function Feed() {
   return (
     <>
       <div className="nav">
-        <Link to="/">
+        <Link to="/feed">
           <img
             src="http://localhost:3310/public/assets/images/Van_vanture2.png"
             alt="logo Van Vanture"

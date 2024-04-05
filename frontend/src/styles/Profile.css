@@ -1,0 +1,15 @@
+.profile > h2 {
+  text-align: center;
+}
+
+.profile > .post > p,
+.profile > .post > button {
+  margin: 0.5em;
+}
+
+.profile > .post > button {
+  padding: 0.3em;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
